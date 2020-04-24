@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using VeridiaAPI.Models;
 
 namespace VeridiaAPI.Data
@@ -13,14 +9,16 @@ namespace VeridiaAPI.Data
         public void Configure(EntityTypeBuilder<Person> entity)
         {
             entity.HasKey(p => p.Id);
-            entity.Property(p => p.FirstName)
+            entity.Property(p => p.Name)
                 .IsRequired().HasMaxLength(25);
-            entity.Property(p => p.LastName)
+            entity.Property(p => p.Gender)
+                .IsRequired().HasMaxLength(25);
+            entity.Property(p => p.Race)
                 .IsRequired().HasMaxLength(25);
             entity.HasData(
-                new Person { Id = 1, FirstName = "Alek", LastName = "Brown" },
-                new Person { Id = 2, FirstName = "Shea", LastName = "Brown" }
-                ); ;
+                new Person { Id = 1, Name = "Alianor", Gender = "Female", Race = "Human"  },
+                new Person { Id = 2, Name = "Ashtyn Briarlore", Gender = "Female", Race = "Naina" }
+                );
         }
     }
 }

@@ -36,16 +36,6 @@ namespace VeridiaAPI.Controllers
                 return NotFound();
             }
 
-            var Accomplish = await _context.Accomplishments.ToListAsync();
-            foreach (Accomplishment a in Accomplish)
-            {
-                if (a.PersonId == id)
-                {
-                    person.Accomplishments.Add(a);
-                }
-            }
-
-
             return person;
         }
 

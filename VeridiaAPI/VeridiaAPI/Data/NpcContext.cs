@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using VeridiaAPI.Data;
 using VeridiaAPI.Models;
 
@@ -21,7 +17,7 @@ namespace VeridiaAPI
         protected override void OnConfiguring(
             DbContextOptionsBuilder optionsBuilder)
         {
-            //TODO configures the DbContext
+            //configures the DbContext
             base.OnConfiguring(optionsBuilder);
         }
 
