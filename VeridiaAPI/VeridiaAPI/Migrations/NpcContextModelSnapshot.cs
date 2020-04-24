@@ -18,7 +18,7 @@ namespace VeridiaAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("VeridiaAPI.Models.Person", b =>
+            modelBuilder.Entity("VeridiaAPI.Models.Npc", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -71,7 +71,7 @@ namespace VeridiaAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("People");
+                    b.ToTable("npcs");
 
                     b.HasData(
                         new

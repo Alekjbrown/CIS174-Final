@@ -25,6 +25,8 @@ namespace VeridiaAPI
             services.AddDbContext<NpcContext>(options =>
             options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));
+
+            //services.AddDbContext<NpcContext>();
             services.AddControllers();
         }
 

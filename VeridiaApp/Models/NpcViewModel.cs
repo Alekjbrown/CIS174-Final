@@ -1,22 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace VeridiaAPI.Models
+namespace VeridiaApp.Models
 {
-    public class Person
+    public class NpcViewModel
     {
-        [Key]
         public int Id { get; set; }
-        [StringLength(25)]
         public string Name { get; set; }
-        [StringLength(10)]
-        public string Gender { get; set; }
-
-        [StringLength(25)]
+        public string Gender {get;set;}
         public string Race { get; set; }
         public int Age { get; set; }
-        [StringLength(300)]
         public string Description { get; set; }
-        [StringLength(300)]
         public string Notes { get; set; }
         public int Str { get; set; }
         public int Dex { get; set; }
@@ -24,5 +20,6 @@ namespace VeridiaAPI.Models
         public int Int { get; set; }
         public int Wis { get; set; }
         public int Cha { get; set; }
+
     }
 }

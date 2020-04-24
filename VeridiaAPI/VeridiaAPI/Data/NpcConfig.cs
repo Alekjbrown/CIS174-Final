@@ -4,20 +4,20 @@ using VeridiaAPI.Models;
 
 namespace VeridiaAPI.Data
 {
-    public class NpcConfig : IEntityTypeConfiguration<Person>
+    public class NpcConfig : IEntityTypeConfiguration<Npc>
     {
-        public void Configure(EntityTypeBuilder<Person> entity)
+        public void Configure(EntityTypeBuilder<Npc> entity)
         {
-            entity.HasKey(p => p.Id);
-            entity.Property(p => p.Name)
+            entity.HasKey(n => n.Id);
+            entity.Property(n => n.Name)
                 .IsRequired().HasMaxLength(25);
-            entity.Property(p => p.Gender)
+            entity.Property(n => n.Gender)
                 .IsRequired().HasMaxLength(25);
-            entity.Property(p => p.Race)
+            entity.Property(n => n.Race)
                 .IsRequired().HasMaxLength(25);
             entity.HasData(
-                new Person { Id = 1, Name = "Alianor", Gender = "Female", Race = "Human"  },
-                new Person { Id = 2, Name = "Ashtyn Briarlore", Gender = "Female", Race = "Naina" }
+                new Npc { Id = 1, Name = "Alianor", Gender = "Female", Race = "Human"  },
+                new Npc { Id = 2, Name = "Ashtyn Briarlore", Gender = "Female", Race = "Naina" }
                 );
         }
     }

@@ -9,27 +9,27 @@ namespace VeridiaAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PeopleController : ControllerBase
+    public class NpcController : ControllerBase
     {
         private readonly NpcContext _context;
 
-        public PeopleController(NpcContext context)
+        public NpcController(NpcContext context)
         {
             _context = context;
         }
 
-        // GET: api/People
+        // GET: api/npc
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Person>>> GetPeople()
+        public async Task<ActionResult<IEnumerable<Npc>>> GetPeople()
         {
-            return await _context.People.ToListAsync();
+            return await _context.npcs.ToListAsync();
         }
 
-        // GET: api/People/5
+        // GET: api/npc/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Person>> GetPerson(int id)
+        public async Task<ActionResult<Npc>> GetPerson(int id)
         {
-            var person = await _context.People.FindAsync(id);
+            var person = await _context.npcs.FindAsync(id);
 
             if (person == null)
             {
@@ -39,11 +39,11 @@ namespace VeridiaAPI.Controllers
             return person;
         }
 
-        // PUT: api/People/5
+        // PUT: api/npc/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPerson(int id, Person person)
+        public async Task<IActionResult> PutPerson(int id, Npc person)
         {
             if (id != person.Id)
             {
@@ -71,29 +71,29 @@ namespace VeridiaAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/People
+        // POST: api/npc
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Person>> PostPerson(Person person)
+        public async Task<ActionResult<Npc>> PostPerson(Npc person)
         {
-            _context.People.Add(person);
+            _context.npcs.Add(person);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPerson", new { id = person.Id }, person);
         }
 
-        // DELETE: api/People/5
+        // DELETE: api/npc/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Person>> DeletePerson(int id)
+        public async Task<ActionResult<Npc>> DeletePerson(int id)
         {
-            var person = await _context.People.FindAsync(id);
+            var person = await _context.npcs.FindAsync(id);
             if (person == null)
             {
                 return NotFound();
             }
 
-            _context.People.Remove(person);
+            _context.npcs.Remove(person);
             await _context.SaveChangesAsync();
 
             return person;
@@ -101,7 +101,7 @@ namespace VeridiaAPI.Controllers
 
         private bool PersonExists(int id)
         {
-            return _context.People.Any(e => e.Id == id);
+            return _context.npcs.Any(e => e.Id == id);
         }
     }
 }

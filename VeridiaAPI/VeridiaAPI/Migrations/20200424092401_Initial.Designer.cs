@@ -9,8 +9,8 @@ using VeridiaAPI;
 namespace VeridiaAPI.Migrations
 {
     [DbContext(typeof(NpcContext))]
-    [Migration("20200424003121_NpcContext-v3")]
-    partial class NpcContextv3
+    [Migration("20200424092401_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,7 +20,7 @@ namespace VeridiaAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("VeridiaAPI.Models.Person", b =>
+            modelBuilder.Entity("VeridiaAPI.Models.Npc", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -73,7 +73,7 @@ namespace VeridiaAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("People");
+                    b.ToTable("npcs");
 
                     b.HasData(
                         new
